@@ -9,7 +9,26 @@ class DrawerMenu extends StatefulWidget {
 }
 
 class _DrawerMenuState extends State<DrawerMenu> {
-  
+  bool darkmode = false;
+  dynamic savedThemeMode;
+  void initState() {
+  super.initState();
+  getCurrentTheme();
+}
+Future getCurrentTheme() async {
+  savedThemeMode = await AdaptiveTheme.getThemeMode();
+  if (savedThemeMode.toString() == 'AdaptiveThemeMode.dark') {
+    print('mode sombre');
+    setState(() {
+      darkmode = true;
+    });
+  } else {
+    setState(() {
+      darkmode = false;
+    });
+    print('mode clair');
+  }
+}
 
   Widget build(BuildContext context) {
 
@@ -45,17 +64,31 @@ class _DrawerMenuState extends State<DrawerMenu> {
             },
           ),
           ListTile(
-            title:
-                Text('Mode sombre', style: TextStyle(fontWeight: FontWeight.bold)),
-                trailing: Icon(
-              Icons.brightness_2,
-              
-
-            ),
+            
+              title: SwitchListTile(
+                title: Text('Mode sombre'),
+                value: darkmode,
+                activeColor: Colors.orange,
+                onChanged: (bool value) {
+                  print(value);
+                  if (value == true) {
+                    AdaptiveTheme.of(context).setDark();
+                    
+                  } else {
+                    AdaptiveTheme.of(context).setLight();
+                    
+                  }
+                  setState(() {
+                    darkmode = value;
+                  });
+                },
+                // secondary: const Icon(Icons.nightlight_round),
+              ),
+                
             onTap: () {
               AdaptiveTheme.of(context).toggleThemeMode();
               // Navigator.pushReplacementNamed(context, '/profile');
-              
+              print(darkmode);
             },
           ),
           ListTile(

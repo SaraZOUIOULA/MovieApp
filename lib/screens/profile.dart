@@ -66,16 +66,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 50,
                             ),
                             Text(
-                                'Name : ' +
-                                    user[0].firstName +
-                                    ' ' +
-                                    user[0].name,
+                                'First name: ' +
+                                    user[0].name, 
+                                    style: TextStyle(fontSize: 20)
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                                'Name: ' +
+                                    user[0].firstName,
+                                    style: TextStyle(fontSize: 20)
+                            ),
+                            SizedBox(height: 10),
+                            Text('City: ' + user[0].city,
                                 style: TextStyle(fontSize: 20)),
                             SizedBox(height: 10),
-                            Text('City : ' + user[0].city,
-                                style: TextStyle(fontSize: 20)),
-                            SizedBox(height: 10),
-                            Text('Email : ' + user[0].email,
+                            Text('Email: ' + user[0].email,
                                 style: TextStyle(fontSize: 20))
                           ]);
                       }

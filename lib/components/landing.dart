@@ -42,7 +42,7 @@ class _LandingState extends State<Landing> {
                 itemBuilder: (context, index) {
                   return Padding(
 
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(10),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, '/detail',
@@ -51,29 +51,42 @@ class _LandingState extends State<Landing> {
                         child: Column(
                           children: [
                             Container(
-                              height: 200,
-                              width: 88,
+                              height: 430,
+                              width: 300,
                               decoration: BoxDecoration(
-                                  image: DecorationImage(image: NetworkImage(
-
-                                      //récupere une image sur le net par une url (string)
-                                      movies[index].poster))),
+                                  image: DecorationImage( 
+                                    image: NetworkImage(//récupere une image sur le net par une url (string)
+                                      movies[index].poster)
+                                  ),
+                                borderRadius: BorderRadius.all(Radius.circular(40)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey[600],
+                                    blurRadius: 25.0, // soften the shadow
+                                    spreadRadius: 2.0, //extend the shadow
+                                    offset: Offset(
+                                      15.0, // Move to right 10  horizontally
+                                      15.0, // Move to bottom 10 Vertically
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                             SizedBox(
                               height: 10,
                             ),
-                            Text(movies[index].title),
+                            Text(movies[index].title, style: TextStyle( fontSize: 30),),
                             Text(movies[index].year),
-                            // Text(movies[index].kind.join(', ')),
                             SizedBox(
                               height: 10,
                             ),
-                            Column(
-                              children: List.generate(
-                                  movies[index].kind.length,
-                                  (indexKind) =>
-                                      Text(movies[index].kind[indexKind])),
-                            )
+                            Text(movies[index].kind.join(', ')),
+                            // Column(
+                            //   children: List.generate(
+                            //       movies[index].kind.length,
+                            //       (indexKind) =>
+                            //           Text(movies[index].kind[indexKind])),
+                            // )
                           ],
                         ),
 

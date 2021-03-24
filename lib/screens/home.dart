@@ -18,9 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
   bool disable = false;
 
   _onTap(int index) {
+    switch (index) {
+      case 1:
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+      case 0:
+        Navigator.pushReplacementNamed(context, '/home');
+        break;
+      default:
     setState(() {
       _selectedPage = index;
     });
+  }
   }
 
   List<Widget> list = [
@@ -35,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
         drawerEnableOpenDragGesture: !disable,
         drawer: DrawerMenu(),
         body: SafeArea(
-          child: list[_selectedPage],
+          child: 
+          list[_selectedPage],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
@@ -46,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',
+              
             ),
           ],
           currentIndex: _selectedPage,

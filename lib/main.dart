@@ -31,11 +31,12 @@ class App extends StatelessWidget {
               light: ThemeData(
                 brightness: Brightness.light,
                 primarySwatch: Colors.deepPurple,
-                
+                accentColor: Colors.amber,
               ),
               dark: ThemeData(
                 brightness: Brightness.dark,
                 primarySwatch: Colors.orange,
+                accentColor: Colors.amber,
                 
               ),
                 initial: AdaptiveThemeMode.light,
