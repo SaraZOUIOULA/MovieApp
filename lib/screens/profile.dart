@@ -31,6 +31,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Profile'),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(13.0),
+              child: Icon(Icons.edit),
+            ),
+          ],
         ),
         drawer: DrawerMenu(),
         body: SafeArea(

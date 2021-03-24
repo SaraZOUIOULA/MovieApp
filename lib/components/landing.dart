@@ -48,6 +48,7 @@ class _LandingState extends State<Landing> {
                         arguments: ItemArguments(movie: movies[index] )
                         );
 
+                        
                       },
                     
                     child: Column(
@@ -65,7 +66,6 @@ class _LandingState extends State<Landing> {
                         Text(movies[index].year),
                         // Text(movies[index].kind.join(', ')),
                         Column(children: List.generate(movies[index].kind.length, (indexKind) => Text(movies[index].kind[indexKind])),)
-
                       ],
                     ),
                   ));
