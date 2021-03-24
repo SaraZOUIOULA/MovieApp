@@ -41,6 +41,7 @@ class _LandingState extends State<Landing> {
                 itemCount: movies.length,
                 itemBuilder: (context, index) {
                   return Padding(
+
                       padding: EdgeInsets.all(8),
                       child: GestureDetector(
                         onTap: () {
@@ -54,6 +55,7 @@ class _LandingState extends State<Landing> {
                               width: 88,
                               decoration: BoxDecoration(
                                   image: DecorationImage(image: NetworkImage(
+
                                       //récupere une image sur le net par une url (string)
                                       movies[index].poster))),
                             ),
@@ -74,10 +76,21 @@ class _LandingState extends State<Landing> {
                             )
                           ],
                         ),
-                      ));
-                },
+
+                      )
+                      
+                  );
+                      
+                }
+                  
+                
+
               );
+
           }
-        });
+      }
+        
+    );
+        
   }
 }

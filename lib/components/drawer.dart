@@ -1,9 +1,18 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:dwm14/models/movie.dart';
 import 'package:dwm14/screens/firebase.dart';
 import 'package:flutter/material.dart';
 
-class DrawerMenu extends StatelessWidget {
+class DrawerMenu extends StatefulWidget {
+  @override
+  _DrawerMenuState createState() => _DrawerMenuState();
+}
+
+class _DrawerMenuState extends State<DrawerMenu> {
+  
+
   Widget build(BuildContext context) {
+
     return Drawer(
       child: SafeArea(
           child: ListView(
@@ -30,8 +39,23 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             title:
                 Text('Profile', style: TextStyle(fontWeight: FontWeight.bold)),
+            
             onTap: () {
               Navigator.pushReplacementNamed(context, '/profile');
+            },
+          ),
+          ListTile(
+            title:
+                Text('Mode sombre', style: TextStyle(fontWeight: FontWeight.bold)),
+                trailing: Icon(
+              Icons.brightness_2,
+              
+
+            ),
+            onTap: () {
+              AdaptiveTheme.of(context).toggleThemeMode();
+              // Navigator.pushReplacementNamed(context, '/profile');
+              
             },
           ),
           ListTile(

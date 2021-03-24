@@ -22,6 +22,7 @@ class _DetailScreenState extends State<DetailScreen> {
           title: Text("Movie's detail"),
         ),
         drawer: DrawerMenu(),
+
         body: SafeArea(
             child: SingleChildScrollView(
           child: Column(
@@ -69,5 +70,6 @@ class _DetailScreenState extends State<DetailScreen> {
             _onTap(index);
           },
         ));
+
   }
 }
