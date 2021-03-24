@@ -41,34 +41,40 @@ class _LandingState extends State<Landing> {
                 itemCount: movies.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.all(8),
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context, '/detail',
-                        arguments: ItemArguments(movie: movies[index] )
-                        );
-
-                      },
-                    
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 200,
-                          width: 88,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
+                      padding: EdgeInsets.all(8),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/detail',
+                              arguments: ItemArguments(movie: movies[index]));
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 88,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(image: NetworkImage(
                                       //récupere une image sur le net par une url (string)
                                       movies[index].poster))),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(movies[index].title),
+                            Text(movies[index].year),
+                            // Text(movies[index].kind.join(', ')),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Column(
+                              children: List.generate(
+                                  movies[index].kind.length,
+                                  (indexKind) =>
+                                      Text(movies[index].kind[indexKind])),
+                            )
+                          ],
                         ),
-                        Text(movies[index].title),
-                        Text(movies[index].year),
-                        // Text(movies[index].kind.join(', ')),
-                        Column(children: List.generate(movies[index].kind.length, (indexKind) => Text(movies[index].kind[indexKind])),)
-
-                      ],
-                    ),
-                  ));
+                      ));
                 },
               );
           }
