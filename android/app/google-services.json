@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "374230416734",
+    "project_id": "flutter-dwm14",
+    "storage_bucket": "flutter-dwm14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374230416734:android:93858f225f4a0fceb863cf",
+        "android_client_info": {
+          "package_name": "com.flutter.dwm14"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374230416734-g9j3r1n1m20f8b6desf0hhlo4v7qfnvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5JPAheM7fnmYLfVJdmFyyE79hFumkuUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374230416734-g9j3r1n1m20f8b6desf0hhlo4v7qfnvb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "374230416734-5ql4ng0lhavuhb33eq46vtbq22ne0it5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutter.dwm14"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
