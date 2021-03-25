@@ -110,26 +110,12 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 10,
             ),
-            Builder(
-              builder: (context) => GestureDetector(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(5)),
-                  height: 35,
-                  width: 70,
-                  child: Center(
-                    child: Text(
-                      'Register',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-              ),
-            ),
+            ElevatedButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/register');
+
+              },child: Text('Register'),),
+          
           ],
         ),
       ),

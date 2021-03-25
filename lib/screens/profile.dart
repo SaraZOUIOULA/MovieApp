@@ -32,12 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: Text('Profile'),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(13.0),
-              child: Icon(Icons.edit),
-            ),
-          ],
+          
         ),
         drawer: DrawerMenu(),
         body: SafeArea(
@@ -143,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'Profil',
+              label: 'Profile',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.logout),
