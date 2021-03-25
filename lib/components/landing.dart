@@ -26,7 +26,11 @@ class _LandingState extends State<Landing> {
                   child: SizedBox(
                       width: 20,
                       height: 20,
-                      child: CircularProgressIndicator()));
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.yellow,
+                        valueColor:
+                            new AlwaysStoppedAnimation<Color>(Colors.deepPurple),
+                      )));
             default: // Future terminée
               if (!snapshot.hasData) {
                 //hasData est un bolléen
@@ -36,74 +40,65 @@ class _LandingState extends State<Landing> {
               }
               List movies = snapshot.data;
               return ListView.builder(
-                //itère sur toute les élément du tableau
-                scrollDirection: Axis.horizontal,
-                itemCount: movies.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-
-                      padding: EdgeInsets.all(10),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/detail',
-                              arguments: ItemArguments(movie: movies[index]));
-                        },
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 430,
-                              width: 293,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage( 
-                                    image: NetworkImage(//récupere une image sur le net par une url (string)
-                                      movies[index].poster)
-                                  ),
-                                borderRadius: BorderRadius.all(Radius.circular(40)),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.deepPurple[200],
-                                    blurRadius: 25.0, 
-                                    spreadRadius: 2.0, 
-                                    offset: Offset(
-                                      15.0, 
-                                      15.0, 
-                                    ),
-                                  )
-                                ],
+                  //itère sur toute les élément du tableau
+                  scrollDirection: Axis.horizontal,
+                  itemCount: movies.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                        padding: EdgeInsets.all(10),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/detail',
+                                arguments: ItemArguments(movie: movies[index]));
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 430,
+                                width: 293,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          //récupere une image sur le net par une url (string)
+                                          movies[index].poster)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40)),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.deepPurple[200],
+                                      blurRadius: 25.0,
+                                      spreadRadius: 2.0,
+                                      offset: Offset(
+                                        15.0,
+                                        15.0,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(movies[index].title, style: TextStyle( fontSize: 30),),
-                            Text(movies[index].year),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(movies[index].kind.join(', ')),
-                            // Column(
-                            //   children: List.generate(
-                            //       movies[index].kind.length,
-                            //       (indexKind) =>
-                            //           Text(movies[index].kind[indexKind])),
-                            // )
-                          ],
-                        ),
-
-                      )
-                      
-                  );
-                      
-                }
-                  
-                
-
-              );
-
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                movies[index].title,
+                                style: TextStyle(fontSize: 30),
+                              ),
+                              Text(movies[index].year),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(movies[index].kind.join(', ')),
+                              // Column(
+                              //   children: List.generate(
+                              //       movies[index].kind.length,
+                              //       (indexKind) =>
+                              //           Text(movies[index].kind[indexKind])),
+                              // )
+                            ],
+                          ),
+                        ));
+                  });
           }
-      }
-        
-    );
-        
+        });
   }
 }
