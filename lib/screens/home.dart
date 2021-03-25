@@ -39,10 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text('Welcome to our Movie App'),
         ),
         drawerEnableOpenDragGesture: !disable,
-        drawer: DrawerMenu(),
+        endDrawer: DrawerMenu(),
         body: SafeArea(
           child: 
           list[_selectedPage],

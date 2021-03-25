@@ -52,7 +52,7 @@ class _LandingState extends State<Landing> {
                           children: [
                             Container(
                               height: 430,
-                              width: 300,
+                              width: 293,
                               decoration: BoxDecoration(
                                   image: DecorationImage( 
                                     image: NetworkImage(//récupere une image sur le net par une url (string)
@@ -62,11 +62,11 @@ class _LandingState extends State<Landing> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.grey[600],
-                                    blurRadius: 25.0, // soften the shadow
-                                    spreadRadius: 2.0, //extend the shadow
+                                    blurRadius: 25.0, 
+                                    spreadRadius: 2.0, 
                                     offset: Offset(
-                                      15.0, // Move to right 10  horizontally
-                                      15.0, // Move to bottom 10 Vertically
+                                      15.0, 
+                                      15.0, 
                                     ),
                                   )
                                 ],

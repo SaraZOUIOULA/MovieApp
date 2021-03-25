@@ -27,10 +27,26 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     final ItemArguments args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
+      
+          endDrawer: DrawerMenu(),
         appBar: AppBar(
-          title: Text("Movie's detail"),
+          leading: Builder( // apparement dans la nouvelle version de flutter on ne peut plus mettre une fleche retour et un endDrawer. D'où le mide en place de code.
+          builder: (BuildContext context) {
+            final ScaffoldState scaffold = Scaffold.maybeOf(context);
+            final ModalRoute<dynamic> parentRoute = ModalRoute.of(context);
+            final bool hasEndDrawer = scaffold?.hasEndDrawer ?? false;
+            final bool canPop = parentRoute?.canPop ?? false;
+
+            if (hasEndDrawer && canPop) {
+              return BackButton();
+            } else {
+              return SizedBox.shrink();
+            }
+          },
         ),
-        drawer: DrawerMenu(),
+          centerTitle: true,
+          title: Text("Movie's detail" ),
+        ),
 
         body: SafeArea(
             child: SingleChildScrollView(
