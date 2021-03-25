@@ -26,6 +26,9 @@ class _DetailScreenState extends State<DetailScreen> {
 
   Widget build(BuildContext context) {
     final ItemArguments args = ModalRoute.of(context).settings.arguments;
+    final date = args.movie.releasedDate.toDate().toString().substring(0,10);
+    
+
     return Scaffold(
       
           endDrawer: DrawerMenu(),
@@ -53,7 +56,13 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Column(
             children: [
               SizedBox(height: 10),
-              Text(args.movie.title, style: TextStyle(fontSize: 40)),
+              Container(
+                color: Colors.deepPurple[200] ,
+                width: 500,
+                height: 100,
+                child: Center(child: Text(args.movie.title,style: TextStyle(fontSize: 40, color: Colors.black), textAlign: TextAlign.center)),
+                // decoration: BoxDecoration(color: Colors.amber),
+              ),
               SizedBox(height: 10),
               Container(
                 height: 300,
@@ -65,7 +74,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey[600],
+                          color: Colors.deepPurple[200],
                           blurRadius: 25.0, // soften the shadow
                           spreadRadius: 2.0, //extend the shadow
                           offset: Offset(
@@ -99,6 +108,8 @@ class _DetailScreenState extends State<DetailScreen> {
                     Text(args.movie.actors.join(', '),
                         style: TextStyle(fontSize: 17),textAlign: TextAlign.center),
                     SizedBox(height: 10),
+                    Text(date)
+
                   ],
                 
                 ),

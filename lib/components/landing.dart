@@ -61,7 +61,7 @@ class _LandingState extends State<Landing> {
                                 borderRadius: BorderRadius.all(Radius.circular(40)),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey[600],
+                                    color: Colors.deepPurple[200],
                                     blurRadius: 25.0, 
                                     spreadRadius: 2.0, 
                                     offset: Offset(
