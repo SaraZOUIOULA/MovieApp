@@ -30,6 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text('Profile'),
           actions: [
             Padding(
@@ -61,28 +62,77 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             );
                           }
                           List user = snapshot.data;
-                          return Column(children: [
-                            SizedBox(
-                              height: 50,
+                          return Container(
+                            height: 500,
+                            width: 300,
+                            decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.all(Radius.circular(40)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.deepPurple[200],
+                                    blurRadius: 25.0, 
+                                    spreadRadius: 2.0, 
+                                    
+                                  )
+                                ],
                             ),
-                            Text(
-                                'First name: ' +
-                                    user[0].name, 
-                                    style: TextStyle(fontSize: 20)
+                            child: Center(
+                               
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                
+                                Row(
+                                  mainAxisAlignment : MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'First name: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold )
+                                    ),
+                                    Text(
+                                      user[0].firstName, style: TextStyle(fontSize: 20)
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment : MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Name: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold )
+                                    ),
+                                    Text(
+                                      user[0].name, style: TextStyle(fontSize: 20)
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment : MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'City: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold )
+                                    ),
+                                    Text(
+                                      user[0].city, style: TextStyle(fontSize: 20)
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment : MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Email: ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold )
+                                    ),
+                                    Text(
+                                      user[0].email, style: TextStyle(fontSize: 20)
+                                    ),
+                                  ],
+                                ),
+                              ]),
                             ),
-                            SizedBox(height: 10),
-                            Text(
-                                'Name: ' +
-                                    user[0].firstName,
-                                    style: TextStyle(fontSize: 20)
-                            ),
-                            SizedBox(height: 10),
-                            Text('City: ' + user[0].city,
-                                style: TextStyle(fontSize: 20)),
-                            SizedBox(height: 10),
-                            Text('Email: ' + user[0].email,
-                                style: TextStyle(fontSize: 20))
-                          ]);
+                          );
                       }
                     }))),
         bottomNavigationBar: BottomNavigationBar(

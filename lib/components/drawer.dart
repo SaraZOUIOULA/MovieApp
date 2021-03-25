@@ -1,5 +1,4 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:dwm14/models/movie.dart';
 import 'package:dwm14/screens/firebase.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
 Future getCurrentTheme() async {
   savedThemeMode = await AdaptiveTheme.getThemeMode();
   if (savedThemeMode.toString() == 'AdaptiveThemeMode.dark') {
-    print('mode sombre');
     setState(() {
       darkmode = true;
     });
@@ -26,7 +24,6 @@ Future getCurrentTheme() async {
     setState(() {
       darkmode = false;
     });
-    print('mode clair');
   }
 }
 
@@ -70,13 +67,10 @@ Future getCurrentTheme() async {
                 value: darkmode,
                 activeColor: Colors.orange,
                 onChanged: (bool value) {
-                  print(value);
                   if (value == true) {
                     AdaptiveTheme.of(context).setDark();
-                    
                   } else {
                     AdaptiveTheme.of(context).setLight();
-                    
                   }
                   setState(() {
                     darkmode = value;
