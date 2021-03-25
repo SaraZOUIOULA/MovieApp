@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           title: Text('Profile'),
           
         ),
-        drawer: DrawerMenu(),
+        endDrawer: DrawerMenu(),
         body: SafeArea(
             child: Center(
                 child: FutureBuilder(
