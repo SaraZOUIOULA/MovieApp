@@ -1,8 +1,6 @@
 import 'package:dwm14/components/drawer.dart';
 import 'package:dwm14/components/landing.dart';
-import 'package:dwm14/screens/detail.dart';
 import 'package:flutter/material.dart';
-import '../components/square.dart';
 
 final PageController ctrl = PageController();
 
@@ -13,8 +11,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedPage = 0;
-  int nb = 0;
-  Color color = Colors.blue;
   bool disable = false;
 
   _onTap(int index) {
@@ -26,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.pushReplacementNamed(context, '/home');
         break;
       default:
-    setState(() {
-      _selectedPage = index;
-    });
-  }
+        setState(() {
+          _selectedPage = index;
+        });
+    }
   }
 
   List<Widget> list = [
@@ -44,8 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         drawerEnableOpenDragGesture: !disable,
         drawer: DrawerMenu(),
         body: SafeArea(
-          child: 
-          list[_selectedPage],
+          child: list[_selectedPage],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
@@ -56,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',
-              
             ),
           ],
           currentIndex: _selectedPage,
